@@ -35,6 +35,7 @@ public class PatbaseMain {
 					+ patent.getCompany() + " applied for.");
 		}
 
+		// THIS IS A TEST FOR SE GITHUBERISCH
 		/*
 		 * for(int i = 0; i < PatentList.size();i++){
 		 * System.out.println(PatentList.get(i).getMasterPN());
