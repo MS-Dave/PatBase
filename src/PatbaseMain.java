@@ -23,6 +23,7 @@ public class PatbaseMain {
 
 		// Gets the list of all patent applicants in the called xml
 		HashMap<String, Integer> allApplicants = getAllApplicants(patents);
+		// HashMap<String, Integer> allDates = getDates(patents);
 
 		// Assigning the company to a certain patent
 		// Iterator<String> allApplicantIterator =
@@ -35,85 +36,19 @@ public class PatbaseMain {
 					+ patent.getCompany() + " applied for.");
 		}
 
-		// THIS IS A TEST FOR SE GITHUBERISCH
-		/*
-		 * for(int i = 0; i < PatentList.size();i++){
-		 * System.out.println(PatentList.get(i).getMasterPN());
-		 * System.out.println(PatentList.get(i).getEPD());
-		 * System.out.println(PatentList.get(i).getIPC8());
-		 * System.out.println(PatentList.get(i).getApplicant()); }
-		 */
-
 		/////////////////////////////////////////////////////////
 		// Aktivitätskennzahlen
 		////////////////////////////////////////////////////////
 
-		/*
-		 * //1. Patentanmeldungen: Anzahl an Patenten pro Analyseobjekt int
-		 * PatentAnmeldungen = PatentList.size();
-		 * System.out.println("Anzahl an Patentanmeldungen: " +
-		 * PatentAnmeldungen);
-		 * 
-		 * 
-		 * 
-		 * 
-		 * //1.1 Jährliche Patentanmeldungen
-		 * 
-		 * for(int i=0; i < PatentList.size(); i++){
-		 * 
-		 * }
-		 * 
-		 * 
-		 * 
-		 * 
-		 * //2. Patentanteil:
-		 * 
-		 * //3. Patentanmeldungsaktivität (Branchenschnitt):
-		 * 
-		 * //4. Patentbasierter Unternehmensbenchmark:
-		 * 
-		 * //5. Patentintensität:
-		 * 
-		 * //6. Prüfquote:
-		 * 
-		 * //7. Patentwachstumsrate:
-		 * 
-		 * //8. Internes Aktivitätsprofil:
-		 * 
-		 * //9. Interne Konzentrationsquote:
-		 * 
-		 * //10. Technologieanteil:
-		 * 
-		 * //11. Externe Konzentrationsquote
-		 * 
-		 * //12. Aktivitätsindex
-		 * 
-		 * //13. Patentbasierter Technologiebenchmark
-		 * 
-		 * //14. Anmelderaktivität
-		 * 
-		 * //15. Patentbasierter Erfinderbenchmark
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * //Qualitätskennzahlen
-		 * 
-		 * 
-		 * 
-		 * 
-		 */
+		// 1. Patentanmeldungen: Anzahl an Patenten pro Analyseobjekt int
+		// Alle Patentanmeldungen nach 2005
+		//
 
+		for (Patent patent : patents) {
+
+			System.out.println(patent.getEPD());
+
+		}
 	}
 
 	private static void determineCompanies(List<Patent> patents, HashMap<String, Integer> allApplicants) {
@@ -151,6 +86,14 @@ public class PatbaseMain {
 		return allApplicants;
 	}
 
+	/*
+	 * private static HashMap<String, Integer> getDates(List<Patent> patents) {
+	 * HashMap<String, Integer> allDates = new HashMap<String, Integer>();
+	 * 
+	 * for (Patent patent : patents) { String MasterPN = patent.getMasterPN();
+	 * int epd = patent.getEPD(); allDates.put(MasterPN, epd); } return
+	 * allDates; }
+	 */
 	private static List<Patent> getPatents() {
 		PatentHandler handler = new PatentHandler();
 
@@ -162,10 +105,10 @@ public class PatbaseMain {
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			SAXParser saxParser = factory.newSAXParser();
 
-			// saxParser.parse("c:\\Users\\David\\Project_Patent\\PatBase-Daten\\"
-			// + "PatBaseTest.xml", handler);
+			saxParser.parse("c:\\Users\\David\\Project_Patent\\PatBase-Daten\\" + "PatBaseTest.xml", handler);
 
-			saxParser.parse("c:\\Users\\David\\Project_Patent\\PatBase-Daten\\" + "Test_XML_IPC.xml", handler);
+			// saxParser.parse("c:\\Users\\David\\Project_Patent\\PatBase-Daten\\"
+			// + "Test_XML_IPC.xml", handler);
 
 			// saxParser.parse("c:\\Users\\David\\Project_Patent\\PatBase-Daten\\"
 			// + "XML_Techfield.xml", handler);

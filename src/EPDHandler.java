@@ -20,11 +20,13 @@ public class EPDHandler extends ElementHandler {
 	@Override
 	public void characters(char[] ch, int start, int length) throws SAXException {
 		String dateString = new String(ch, start, length);
+
 		try {
 			epdListener.accept(Optional.of(Integer.valueOf(dateString)));
 		} catch (NumberFormatException e) {
 			epdListener.accept(Optional.empty());
 		}
+
 	}
 
 }
